@@ -30,6 +30,24 @@
 .popular .item{
   margin-bottom:25px;
 }
+
+.popular .item:hover .overlay_popular{
+  background:rgba(0,0,0,0.4);
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+.popular .item:hover .detail a{
+  color: #0C72A6;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
 .popular .item .detail{
   background:rgba(0, 0, 0, .075);
   padding-top: 15px;
@@ -40,11 +58,24 @@
   color: #ddd;
   font-size: 35px;
   float: right;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+.popular .item .detail a:hover{
+  color: #0C72A6;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 .popular .overlay_popular{
   position:absolute;
   height:100%;
-  /*background:rgba(0,0,0,0.7);*/
+  /*opacity: 0;*/
   display: table;
 }
 .popular .overlay_popular .overlay_pupular_content {
@@ -52,7 +83,6 @@
   vertical-align: bottom;
   padding-left: 15px;
 }
-
 .popular .overlay_popular .overlay_pupular_content .small{
   color: #fff;
 }
