@@ -10,13 +10,24 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="{{asset('assets/css/full-slider.css')}}" type="text/css" />
+    <!-- <link rel="stylesheet" href="{{asset('assets/css/full-slider.css')}}" type="text/css" /> -->
+    <link rel="stylesheet" href="{{asset('template/web/css/owlcarousel2/owl.carousel.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('template/web/css/owlcarousel2/owl.theme.default.min.css')}}" type="text/css" />
+
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/ionicons.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/datepicker3.css')}}" type="text/css">
 
     <style>
+    @font-face {font-family: 'PT Sans';             src: url({{asset('assets/fonts/PTSans.ttf')}});        }
+    @font-face {font-family: 'PT Sans Bold';        src: url({{asset('assets/fonts/PTSansBold.ttf')}});        }
+    @font-face {font-family: 'PT Sans Italic';      src: url({{asset('assets/fonts/PTSansItalic.ttf')}});        }
+    @font-face {font-family: 'PT Sans Caption Bold';src: url({{asset('assets/fonts/PTSansCaptionBold.ttf')}});        }
+
+    body{
+      font-family: "PT Sans";
+    }
     .no-padding{
       padding: 0;
     }
@@ -59,12 +70,20 @@
     .navbar-default .navbar-brand .logo{
       width: 200px;
     }
+    .navbar-default .navbar-nav > .active > a:hover{
+      color: #fff;
+    }
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
       background: transparent;
+      color: #fff;
     }
+
     @media (min-width:1200px) {
       .navbar-default .navbar-nav{
         padding-left: 130px;
+      }
+      .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+        border-bottom: 2px solid #fff;
       }
     }
 
@@ -140,8 +159,17 @@
     }
 
     .footer .contact{
+      list-style: none;
+      padding-left:  0;
       margin-top: 25px;
       margin-bottom: 25px;
+    }
+    @media (max-width:992px) {
+
+      .footer .contact{
+        padding-left:  15px;
+        padding-right:  15px;
+      }
     }
     .footer .contact li{
       margin-bottom: 15px;
@@ -154,6 +182,12 @@
       text-align: center;
       vertical-align: middle;
       border-radius: 3px;
+    }
+    @media (max-width:992px) {
+      .footer .subscribe{
+        padding-left:  25px;
+        padding-right:  25px;
+      }
     }
     .footer .input-group-addon{
       background: rgba(36, 132, 189, 0.7);
@@ -184,31 +218,12 @@
 
     </style>
     <script src="{{asset('assets/js/jquery.js') }}"></script>
-    <script src="{{asset('assets/js/pull.js') }}"></script>
-      <script>
-      // function myFunction(){
-      //   var h=$(window).height();
-      //   $(".bg").css("height",h);}
-      </script>
-
-      <script>
-      // function promo(){
-      //   var a=$(window).width();
-      //   $(".promo").css("width",a);}
-      </script>
-
-      <style>
-        @font-face {font-family: 'PT Sans';             src: url({{asset('assets/fonts/PTSans.ttf')}});        }
-        @font-face {font-family: 'PT Sans Bold';        src: url({{asset('assets/fonts/PTSansBold.ttf')}});        }
-        @font-face {font-family: 'PT Sans Italic';      src: url({{asset('assets/fonts/PTSansItalic.ttf')}});        }
-        @font-face {font-family: 'PT Sans Caption Bold';src: url({{asset('assets/fonts/PTSansCaptionBold.ttf')}});        }
-      </style>
 
 
 
   </head>
 
-  <body onresize="myFunction()" onload="promo()" data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+  <body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
     <div class="wrapper">
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -305,10 +320,10 @@
 
         </div><!--/.col-->
         <div class="col-md-3">
-          <ul class="nav contact">
+          <ul class="contact">
             <li>
               <div class="row">
-                <div class="col-xs-2">
+                <div class="col-xs-2 ">
                   <div class="contact-icon">
                     <i class="icon ion-ios-location"></i>
                   </div>
@@ -358,7 +373,7 @@
           </ul>
 
         </div><!--/.col-->
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-xs-12 col-sm-3 subscribe">
 
           <form>
             <div class="input-group">
@@ -376,26 +391,55 @@
 
 
   <div class="clearfix"></div>
+  <!-- copyright -->
   <div class="copyright">
       Vakanesia Indonesia
-  </div>
+  </div><!--/. copyright -->
 
 
 </div><!--/.Wrapper-->
 
-      <!--<script src="{{asset('assets/js/bootstrap.min.js')}}" type="javascript" ></script>-->
 
-      <script type="javascript">
-      $('.carousel').carousel({
-          interval: 500000 //changes the speed
+
+      <script src="{{asset('assets/js/jquery.js') }}"></script>
+      <script src="{{asset('assets/js/bootstrap.js') }}" ></script>
+      <script src="{{asset('assets/js/bootstrap-datepicker.js') }}"></script>
+      <script src="{{asset('template/web/js/combodate.js') }}"></script>
+      <script src="{{asset('template/web/js/moment.js') }}"></script>
+
+      <script src="{{ asset('template/web/js/owl.carousel.js')}}"></script>
+      <script>
+      $(document).ready(function() {
+        homeslide();
+        resize_homeslide();
       });
+
+      $(window).resize(function() {
+        homeslide();
+        resize_homeslide();
+      });
+
+
+      function homeslide() {
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            autoPlay: 1000, //Set AutoPlay to 3 seconds
+            dots: true,
+            margin:0,
+            items:1
+        });
+
+      }
+      function resize_homeslide() {
+
+        var w = $(window).width();
+        var h = $(window).height();
+        if(w > 992){
+          $('.slider-img').height(h);
+        }
+      }
+
       </script>
-          <script src="{{asset('assets/js/jquery.js') }}"></script>
-          <script src="{{asset('assets/js/bootstrap.js') }}" ></script>
-          <script src="{{asset('assets/js/bootstrap-datepicker.js') }}"></script>
-          <script src="{{asset('template/web/js/combodate.js') }}"></script>
-          <script src="{{asset('template/web/js/moment.js') }}"></script>
-        </div>
       <script>
         $(window).scroll(function () {
             var w = $(window).width();
@@ -409,6 +453,9 @@
                 }
             }
         });
+      </script>
+      <script>
+
       </script>
     </body>
   </html>
